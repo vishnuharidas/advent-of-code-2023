@@ -6,9 +6,16 @@ fun main() {
 
     // Problem 1
     val total = getFileLines("day01/input.txt").sumOf { line ->
-        line.first { it.isDigit() }.digitToInt() * 10 + line.last { it.isDigit() }.digitToInt()
+        line.firstOrNull { it.isDigit() }
+            ?.digitToInt()
+            ?.times(10)
+            ?.plus(
+                line.lastOrNull { it.isDigit() }
+                    ?.digitToInt()
+                    ?: 0
+            ) ?: 0
     }
 
-    println(total)
+    println("Problem 1 output: $total")
 
 }
