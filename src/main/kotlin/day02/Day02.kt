@@ -67,9 +67,17 @@ fun main() {
 
     fun part2() {
 
+        val sum = getFileLines("day02/input.txt")
+            .map { it.toGame() }
+            .sumOf {
+                it.maxRed * it.maxGreen * it.maxBlue
+            }
+
+        println("Sum of powers: $sum")
+
     }
 
     part1()
-
+    part2()
 
 }
